@@ -1,15 +1,14 @@
 import React , {  useState }  from 'react';
 import "./SidebarOption.css";
 import { useDataLayerValue } from './DataLayer';
-
-
 function SidebarOption(data) {
-  
 const {title,id,spotify,Icon} = data
-const [{ discover_weekly, user_play_list_tracks, user_play_list_img}, dispatch] = useDataLayerValue();
+
+const [{ discover_weekly ,user_play_list_tracks, user_play_list_img}, dispatch] = useDataLayerValue();
 
  const getdata = (id) =>
-{    
+{
+    
  spotify.getPlaylistTracks(id).then((response) => {
      dispatch({
     type: "SET_PLAY_LIST_TRACKS",
@@ -17,11 +16,12 @@ const [{ discover_weekly, user_play_list_tracks, user_play_list_img}, dispatch] 
   })
  });
  spotify.getPlaylistCoverImage(id).then((response) => {
+     
     dispatch({
    type: "SET_PLAY_LIST_IMG",
-   user_play_list_img: response[0].url})
-});
+   user_play_list_img: response[0].url,
 
+})});
  spotify.getPlaylist(id).then((response) => {
      
     dispatch({

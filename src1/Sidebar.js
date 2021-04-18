@@ -19,8 +19,8 @@ function Sidebar({spotify}) {
         <br/>
         <strong className="sidebar__title">PLAYLISTS</strong>   
         <hr/>
-        {playlists?.items?.map((playlist) => (
-            <SidebarOption title={playlist.name}  spotify={spotify} id = {playlist.id} key = {playlist.id}/>
+        {playlists?.items?.map(playlist => (
+            <SidebarOption title={playlist.name}  spotify={spotify} id = {playlist.id}/>
          ))}
         
         </div>

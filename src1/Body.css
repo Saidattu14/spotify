@@ -19,7 +19,7 @@
 
 .body__info > img{
     height: 20vw;
-    margin: 0 20px;
+    margin: 0 200px;
     box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5)
 }
 .body__infoText{

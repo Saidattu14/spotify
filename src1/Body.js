@@ -5,9 +5,7 @@ import Header from './Header';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import SongRow from './SongRow';
-
-
+import SongRow from './SongRow'
 function Body({ spotify }) {
  
     const [{ discover_weekly,user_play_list_tracks,user_play_list_img, user_play_list }, dispatch] = useDataLayerValue();
@@ -16,7 +14,7 @@ function Body({ spotify }) {
     const playPlaylist = (id) => {
       spotify
         .play({
-          context_uri: `spotify:playlist:37i9dQZEVXcS2eRn07N1BI`,
+          context_uri: `spotify:playlist:dvyplxzd74ahmhtp22fr2r47e`,
         })
         .then((res) => {
           spotify.getMyCurrentPlayingTrack().then((r) => {
@@ -35,7 +33,7 @@ function Body({ spotify }) {
     const playSong = (id) => {
       spotify
         .play({
-          uris: [`spotify:track:${id}`],
+          uris: [`spotify:playlist:dvyplxzd74ahmhtp22fr2r47e`],
         })
         .then((res) => {
           spotify.getMyCurrentPlayingTrack().then((r) => {
@@ -90,7 +88,7 @@ function Body({ spotify }) {
           </div>
   
           {discover_weekly?.tracks.items.map((item) => (
-            <SongRow playSong={playSong} track={item.track} key = {item.track.id} />
+            <SongRow playSong={playSong} track={item.track} />
           ))}
         </div>
         </div>
@@ -111,7 +109,7 @@ function Body({ spotify }) {
                   </div>
             </div>
             {user_play_list_tracks.items.map((item) => (
-            <SongRow playSong={playSong} track={item.track} key = {item.track.id}/>
+            <SongRow playSong={playSong} track={item.track} />
               ))}
 
 
